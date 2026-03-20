@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LDtech | AI Receptionist</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(8px);
+    }
+
+    header h1 {
+      font-size: 28px;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      margin-left: 24px;
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      padding: 80px 40px;
+      max-width: 1200px;
+      margin: auto;
+      align-items: center;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(16,185,129,0.12);
+      border: 1px solid rgba(16,185,129,0.3);
+      color: #6ee7b7;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+
+    .hero h2 {
+      font-size: 54px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      color: rgba(255,255,255,0.75);
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 560px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 14px 22px;
+      border-radius: 16px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background: #10b981;
+      color: #0a0a0a;
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+    }
+
+    .demo-box {
+      background: linear-gradient(135deg, #171717, #111111);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 28px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    }
+
+    .demo-inner {
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 24px;
+      background: #0a0a0a;
+    }
+
+    .demo-label {
+      color: #6ee7b7;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .message {
+      padding: 14px 16px;
+      border-radius: 18px;
+      margin-bottom: 14px;
+      font-size: 14px;
+    }
+
+    .user-msg {
+      background: rgba(255,255,255,0.05);
+      color: rgba(255,255,255,0.85);
+    }
+
+    .ai-msg {
+      background: rgba(16,185,129,0.14);
+      color: white;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .stat {
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      border-radius: 18px;
+      padding: 14px;
+      font-size: 14px;
+    }
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 40px;
+    }
+
+    .section-title {
+      color: #6ee7b7;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section h3 {
+      font-size: 40px;
+      margin-bottom: 30px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #111111;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      padding: 24px;
+    }
+
+    .card h4 {
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: rgba(255,255,255,0.72);
+    }
+
+    .industries {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .pill {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      font-size: 14px;
+    }
+
+    .why-box {
+      margin-top: 30px;
+      padding: 28px;
+      border-radius: 28px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: linear-gradient(135deg, rgba(16,185,129,0.08), rgba(6,182,212,0.08));
+    }
+
+    .why-box ul {
+      margin-top: 14px;
+      padding-left: 18px;
+    }
+
+    .why-box li {
+      margin-bottom: 10px;
+      color: rgba(255,255,255,0.85);
+    }
+
+    .cta {
+      text-align: center;
+      padding: 80px 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .cta h3 {
+      font-size: 44px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      color: rgba(255,255,255,0.75);
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 18px;
+    }
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 24px 40px;
+      color: rgba(255,255,255,0.5);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h2,
+      .section h3,
+      .cta h3 {
+        font-size: 36px;
+      }
+
+      header {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>LDtech</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div>
+      <div class="tag">Artificial Intelligence</div>
+      <h2>Get more customers and increase your sales</h2>
+      <p>
+        LDtech’s AI receptionist works 24 hours a day, 7 days a week. While you sleep, it answers,
+        responds, and books appointments. The result is fewer missed calls, more confirmed bookings,
+        and more revenue for your business.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://wa.me/">Test the receptionist</a>
+        <a class="btn btn-secondary" href="https://wa.me/">Ask your questions</a>
+      </div>
+    </div>
+
+    <div class="demo-box">
+      <div class="demo-inner">
+        <div class="demo-label">AI Receptionist Demo</div>
+        <div class="message user-msg">Customer: “Hi, I’d like to book an appointment.”</div>
+        <div class="message ai-msg">LDtech AI: “Of course. I can help with that right now. What day works best for you?”</div>
+        <div class="stats">
+          <div class="stat"><strong>Status</strong><br />Always available</div>
+          <div class="stat"><strong>Bookings</strong><br />Calendar synced</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="section-title">Capabilities</div>
+    <h3>How it works</h3>
+    <div class="features">
+      <div class="card">
+        <h4>Answers calls automatically</h4>
+        <p>Your calls are answered naturally, and key customer information is collected without human intervention.</p>
+      </div>
+      <div class="card">
+        <h4>Answers customer questions</h4>
+        <p>Questions about your business hours, services, and pricing are handled automatically by your virtual receptionist.</p>
+      </div>
+      <div class="card">
+        <h4>Books appointments automatically</h4>
+        <p>Automatic booking connected to your calendar so customers can schedule without needing to speak with you directly.</p>
+      </div>
+      <div class="card">
+        <h4>Works for your industry</h4>
+        <p>AI trained and adaptable for any business that depends on calls, leads, and appointments.</p>
+      </div>
+      <div class="card">
+        <h4>Reports and real-time data</h4>
+        <p>Track calls, bookings, and customer information from a simple dashboard.</p>
+      </div>
+      <div class="card">
+        <h4>24/7 customer response</h4>
+        <p>Your business can keep responding even outside business hours, helping you capture more opportunities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-title">Industries</div>
+    <h3>Perfect for your business</h3>
+    <p style="color: rgba(255,255,255,0.75); max-width: 700px; font-size: 18px;">
+      LDtech’s AI receptionist works for any business that depends on calls and appointments.
+      Below are some of the industries already benefiting from this technology.
+    </p>
+
+    <div class="industries">
+      <div class="pill">Barbershops</div>
+      <div class="pill">Beauty salons</div>
+      <div class="pill">Medical clinics</div>
+      <div class="pill">Dental offices</div>
+      <div class="pill">Med spas</div>
+      <div class="pill">Auto repair shops</div>
+    </div>
+
+    <div class="why-box">
+      <strong style="color:#6ee7b7;">Why businesses choose LDtech</strong>
+      <ul>
+        <li>No more missed calls during busy hours</li>
+        <li>Faster responses on WhatsApp and phone</li>
+        <li>More bookings without hiring more staff</li>
+        <li>Better customer experience 24/7</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <h3>Ready to capture every opportunity?</h3>
+    <p>
+      Try a demo and see how an AI receptionist can answer, qualify, and book customers for your business.
+    </p>
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn btn-primary" href="https://wa.me/">Free demo — takes less than 1 minute</a>
+      <a class="btn btn-secondary" href="mailto:hello@ldtech.com">Contact us</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 LDtech. All rights reserved.
+  </footer>
+</body>
+</html>
