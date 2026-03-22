@@ -15,9 +15,14 @@
       --bg-1: #ffffff;
       --bg-2: #fbfbfb;
       --bg-3: #f3f3f3;
+      --card: rgba(255, 255, 255, 0.92);
+      --card-2: rgba(245, 245, 245, 0.96);
       --text: #0a0a0a;
-      --muted: rgba(0, 0, 0, 0.68);
-      --line: rgba(0, 0, 0, 0.10);
+      --muted: rgba(0,0,0,0.68);
+      --line: rgba(0,0,0,0.10);
+      --primary: #000000;
+      --primary-2: #2a2a2a;
+      --soft-blue: rgba(0,0,0,0.06);
     }
 
     html {
@@ -36,6 +41,7 @@
       background-attachment: fixed;
       color: var(--text);
       line-height: 1.6;
+      padding-top: 100px;
       overflow-x: hidden;
     }
 
@@ -58,179 +64,115 @@
       z-index: 1;
     }
 
-    .sidebar {
+    header {
       position: fixed;
       top: 0;
       left: 0;
-      width: 290px;
-      max-width: 82vw;
-      height: 100vh;
-      background: rgba(255,255,255,0.98);
-      border-right: 1px solid rgba(0,0,0,0.10);
-      box-shadow: 18px 0 40px rgba(0,0,0,0.10);
-      padding: 100px 24px 24px;
-      z-index: 10000;
-      transform: translateX(-100%);
-      transition: transform 0.25s ease;
-      overflow: visible;
-    }
-
-    .sidebar.open {
-      transform: translateX(0);
-    }
-
-    .sidebar-toggle {
-      position: absolute;
-      top: 0;
-      right: -86px;
-      z-index: 10001;
-      width: 86px;
-      height: 86px;
-      border: 1px solid rgba(0,0,0,0.10);
-      border-left: none;
-      background: rgba(255,255,255,0.98);
-      border-radius: 0 0 18px 0;
+      right: 0;
+      width: 100%;
+      z-index: 99999;
       display: flex;
       align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 18px 0 40px rgba(0,0,0,0.10);
-      padding: 8px;
-      overflow: hidden;
-    }
-
-    .menu-icon {
-      width: 34px;
-      height: 24px;
-      display: flex;
-      flex-direction: column;
       justify-content: space-between;
+      gap: 20px;
+      padding: 8px 26px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
 
-    .menu-icon span {
-      display: block;
-      width: 100%;
-      height: 3px;
-      border-radius: 999px;
-      background: #000000;
-    }
-
-    .sidebar > a {
-      display: block;
+    .brand {
+      display: flex;
+      align-items: center;
       text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .brand img {
+      height: 108px;
+      width: auto;
+      display: block;
+    }
+
+    .header-center {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex: 1;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      color: rgba(0,0,0,0.86);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    nav a:hover {
       color: #000000;
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
     }
 
-    .sidebar > a:hover {
-      opacity: 0.65;
+    .socials {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
 
-    .sidebar-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.28);
-      z-index: 9999;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-
-    .sidebar-overlay.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .sidebar-cta {
-      margin-top: 22px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .sidebar-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
+    .socials a {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(0,0,0,0.03);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-decoration: none;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      border-radius: 16px;
-      padding: 14px 16px;
+      color: rgba(0,0,0,0.88);
       transition: 0.2s ease;
     }
 
-    .sidebar-cta .sidebar-btn {
-      border-bottom: none;
-      font-size: 18px;
+    .socials a:hover {
+      background: rgba(0,0,0,0.08);
+      border-color: rgba(0,0,0,0.18);
     }
 
-    .sidebar-btn:hover {
-      transform: translateY(-1px);
+    .socials svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+      fill: currentColor;
     }
 
-    .sidebar-cta .sidebar-btn-primary {
-      background: #000000;
-      color: #ffffff;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    }
-
-    .sidebar-cta .sidebar-btn-secondary {
-      background: rgba(0,0,0,0.03);
-      color: #000000;
-      border: 1px solid rgba(0,0,0,0.10);
-    }
-
-    .sidebar-socials {
-      display: flex;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .sidebar-socials a {
-      flex: 1;
+    .header-actions {
       display: flex;
       align-items: center;
-      justify-content: center;
-      height: 52px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.10);
-      text-decoration: none;
-      color: #000000;
-      font-weight: 700;
-      padding: 0;
-    }
-
-    .sidebar-socials a:hover {
-      opacity: 0.7;
-    }
-
-    .sidebar-socials svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-      display: block;
+      gap: 12px;
+      flex-shrink: 0;
     }
 
     .hero {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 88px 40px 72px;
+      padding: 78px 40px 60px;
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
-      gap: 44px;
-      align-items: start;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 56px;
+      align-items: center;
       scroll-margin-top: 120px;
-    }
-
-    .hero-demo {
-      width: 100%;
-      max-width: 480px;
-      justify-self: end;
     }
 
     .hero h1 {
@@ -290,20 +232,30 @@
       background: rgba(0,0,0,0.03);
     }
 
+    .hero-numbers {
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-numbers a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
     .demo-box {
-      width: 100%;
       background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,246,246,0.96));
       border: 1px solid var(--line);
-      border-radius: 26px;
-      padding: 18px;
-      box-shadow: 0 18px 44px rgba(0,0,0,0.08);
+      border-radius: 30px;
+      padding: 24px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.10);
     }
 
     .demo-inner {
       border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 22px;
-      padding: 18px;
-      background: rgba(255,255,255,0.78);
+      border-radius: 24px;
+      padding: 24px;
+      background: rgba(255,255,255,0.75);
     }
 
     .demo-label {
@@ -316,9 +268,9 @@
     }
 
     .message {
-      padding: 16px 18px;
-      border-radius: 20px;
-      margin-bottom: 14px;
+      padding: 18px 20px;
+      border-radius: 22px;
+      margin-bottom: 18px;
       font-size: 15px;
     }
 
@@ -338,39 +290,42 @@
       gap: 16px;
     }
 
-    .chat-user,
-    .chat-logo {
-      width: 74px;
-      height: 74px;
+    .chat-logo,
+    .chat-user {
+      width: 62px;
+      height: 62px;
       flex-shrink: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
-    .chat-user svg,
-    .chat-logo svg {
-      width: 46px;
-      height: 46px;
+    .chat-logo img {
+      width: 62px;
+      height: auto;
+      display: block;
+      object-fit: contain;
+    }
+
+    .chat-user svg {
+      width: 48px;
+      height: 48px;
       fill: rgba(0,0,0,0.82);
       display: block;
     }
 
     .message-text {
-      font-size: 15px;
-      line-height: 1.5;
-      letter-spacing: -0.012em;
+      font-size: 17px;
+      line-height: 1.55;
+      letter-spacing: -0.015em;
       color: inherit;
-      flex: 1;
-      min-width: 0;
     }
 
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      margin-top: 18px;
+      gap: 18px;
+      margin-top: 30px;
     }
 
     .stat {
@@ -554,6 +509,27 @@
       text-align: center;
     }
 
+    @media (max-width: 1100px) {
+      header {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 16px;
+      }
+
+      .header-center {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      body {
+        padding-top: 190px;
+      }
+
+      .brand img {
+        height: 94px;
+      }
+    }
+
     @media (max-width: 980px) {
       .hero,
       .features,
@@ -570,15 +546,6 @@
         padding-right: 20px;
       }
 
-      .hero {
-        padding-top: 110px;
-      }
-
-      .hero-demo {
-        max-width: 100%;
-        justify-self: stretch;
-      }
-
       .hero h1,
       .section h2,
       .cta h2 {
@@ -589,68 +556,42 @@
         width: 100%;
       }
 
-      .sidebar {
-        width: 260px;
-        padding-top: 92px;
-      }
-
-      .sidebar-toggle {
-        right: -78px;
-        width: 78px;
-        height: 78px;
-      }
-
-      .chat-user,
-      .chat-logo {
-        width: 68px;
-        height: 68px;
-      }
-
-      .chat-user svg,
-      .chat-logo svg {
-        width: 42px;
-        height: 42px;
+      body {
+        padding-top: 220px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <header>
+    <a href="#home" class="brand">
+      <img src="/ldtech-logo.png" alt="LDtech logo" />
+    </a>
 
-  <aside class="sidebar" id="sidebar">
-    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open or close menu">
-      <div class="menu-icon" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
+    <div class="header-center">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#about">Industries</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="socials">
+        <a href="https://instagram.com" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.2 1.3a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
+        </a>
+        <a href="https://facebook.com" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.3-1.6 1.6-1.6H17V4.8c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.4V11H7.5v3h2.8v8h3.2Z"/></svg>
+        </a>
       </div>
-    </button>
-
-    <a href="#home">Home</a>
-    <a href="#services">Services</a>
-    <a href="#how-it-works">Process</a>
-    <a href="#about">Industries</a>
-    <a href="#contact">Contact</a>
-
-    <div class="sidebar-cta">
-      <a class="sidebar-btn sidebar-btn-primary" href="tel:+16369426124">Try the Automation</a>
-      <a class="sidebar-btn sidebar-btn-secondary" href="tel:+16362525071">Call for Questions</a>
     </div>
 
-    <div class="sidebar-socials">
-      <a href="https://www.facebook.com/profile.php?id=61580997124511" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5.03 3.66 9.19 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.92 3.78-3.92 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.9h-2.33V22c4.78-.74 8.43-4.9 8.43-9.93z"/>
-        </svg>
-      </a>
-
-      <a href="https://www.instagram.com/ldtech.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2Zm10.25 1.65a.95.95 0 1 1-.95.95.95.95 0 0 1 .95-.95ZM12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Z"/>
-        </svg>
-      </a>
+    <div class="header-actions">
+      <a class="btn btn-primary" href="tel:+16369426124">Test the Receptionist</a>
+      <a class="btn btn-secondary" href="tel:+16362525071">Call for Questions</a>
     </div>
-  </aside>
+  </header>
 
   <section class="hero" id="home">
     <div>
@@ -666,52 +607,50 @@
       </div>
 
       <div class="buttons">
-        <a class="btn btn-primary" href="tel:+16369426124">Try the Automation</a>
+        <a class="btn btn-primary" href="tel:+16369426124">Test the Receptionist</a>
         <a class="btn btn-secondary" href="tel:+16362525071">Call for Questions</a>
+      </div>
+
+      <div class="hero-numbers">
+        Test the live system:
+        <a href="tel:+16369426124">+1 (636) 942-6124</a>
+        <br />
+        Questions:
+        <a href="tel:+16362525071">+1 (636) 252-5071</a>
       </div>
     </div>
 
-    <div class="hero-demo">
-      <div class="demo-box">
-        <div class="demo-inner">
-          <div class="demo-label">Live Call Example</div>
+    <div class="demo-box">
+      <div class="demo-inner">
+        <div class="demo-label">Live Call Example</div>
 
-          <div class="message user-msg">
-            <span class="chat-user" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
-            </span>
-            <span class="message-text">Caller: “Hi, I’d like to schedule an appointment for this week.”</span>
-          </div>
+        <div class="message user-msg">
+          <span class="chat-user" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
+          </span>
+          <span class="message-text">Caller: “Hi, I’d like to schedule an appointment for this week.”</span>
+        </div>
 
-          <div class="message system-msg">
-            <span class="chat-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-              </svg>
-            </span>
-            <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
-          </div>
+        <div class="message system-msg">
+          <span class="chat-logo"><img src="/ldtech-logo.png" alt="LDtech logo" /></span>
+          <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
+        </div>
 
-          <div class="message user-msg">
-            <span class="chat-user" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
-            </span>
-            <span class="message-text">Caller: “Do you have anything available Friday afternoon?”</span>
-          </div>
+        <div class="message user-msg">
+          <span class="chat-user" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
+          </span>
+          <span class="message-text">Caller: “Do you have anything available Friday afternoon?”</span>
+        </div>
 
-          <div class="message system-msg">
-            <span class="chat-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-              </svg>
-            </span>
-            <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
-          </div>
+        <div class="message system-msg">
+          <span class="chat-logo"><img src="/ldtech-logo.png" alt="LDtech logo" /></span>
+          <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
+        </div>
 
-          <div class="stats">
-            <div class="stat"><strong>Status</strong><br />Answers calls 24/7</div>
-            <div class="stat"><strong>Booking Flow</strong><br />Ready to qualify and schedule</div>
-          </div>
+        <div class="stats">
+          <div class="stat"><strong>Status</strong><br />Answers calls 24/7</div>
+          <div class="stat"><strong>Booking Flow</strong><br />Ready to qualify and schedule</div>
         </div>
       </div>
     </div>
@@ -834,13 +773,38 @@
     </div>
   </section>
 
+  <section class="section" id="founders">
+    <div class="section-title">About Us</div>
+    <h2>Get to know the founders</h2>
+    <p class="section-intro">
+      LDtech was built to help local businesses capture more opportunities, respond faster, and create a better
+      customer experience through reliable phone automation. We focus on practical systems that help businesses
+      grow without unnecessary complexity.
+    </p>
+
+    <div class="features">
+      <div class="card">
+        <h4>Built for real businesses</h4>
+        <p>Our focus is on appointment-based and service businesses that need a more reliable way to answer calls and manage customer demand.</p>
+      </div>
+      <div class="card">
+        <h4>Focused on simplicity</h4>
+        <p>We believe automation should be easy to understand, easy to test, and easy to implement in day-to-day operations.</p>
+      </div>
+      <div class="card">
+        <h4>Designed for growth</h4>
+        <p>The goal is not just to answer calls, but to help businesses improve response times, capture more leads, and book more appointments.</p>
+      </div>
+    </div>
+  </section>
+
   <section class="cta">
     <h2>Ready to turn more calls into booked customers?</h2>
     <p>
       Put a professional reception system in front of your business and give every caller a faster, more reliable response.
     </p>
     <div class="buttons" style="justify-content:center;">
-      <a class="btn btn-primary" href="tel:+16369426124">Try the Automation</a>
+      <a class="btn btn-primary" href="tel:+16369426124">Test the Receptionist</a>
       <a class="btn btn-secondary" href="tel:+16362525071">Call for Questions</a>
     </div>
   </section>
@@ -848,37 +812,5 @@
   <footer>
     © 2026 LDtech. All rights reserved.
   </footer>
-
-  <script>
-    const sidebar = document.getElementById("sidebar");
-    const sidebarToggle = document.getElementById("sidebarToggle");
-    const sidebarOverlay = document.getElementById("sidebarOverlay");
-    const sidebarLinks = document.querySelectorAll(".sidebar a[href^='#']");
-
-    function syncOverlay() {
-      if (sidebar.classList.contains("open")) {
-        sidebarOverlay.classList.add("show");
-      } else {
-        sidebarOverlay.classList.remove("show");
-      }
-    }
-
-    function toggleSidebar() {
-      sidebar.classList.toggle("open");
-      syncOverlay();
-    }
-
-    function closeSidebar() {
-      sidebar.classList.remove("open");
-      syncOverlay();
-    }
-
-    sidebarToggle.addEventListener("click", toggleSidebar);
-    sidebarOverlay.addEventListener("click", closeSidebar);
-
-    sidebarLinks.forEach(link => {
-      link.addEventListener("click", closeSidebar);
-    });
-  </script>
 </body>
 </html>
