@@ -118,32 +118,27 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
       text-align: center;
       text-decoration: none;
-      font-weight: 700;
-      font-size: 14px;
+      font-size: 26px;
       padding: 10px 12px;
       border-radius: 12px;
       border: 1px solid rgba(0,0,0,0.10);
       background: rgba(0,0,0,0.03);
       color: #000000;
       transition: 0.2s ease;
+      line-height: 1;
     }
 
     .lang-btn:hover {
       background: rgba(0,0,0,0.08);
+      transform: translateY(-1px);
     }
 
     .lang-btn.active {
       background: #000000;
-      color: #ffffff;
       border-color: #000000;
-    }
-
-    .flag {
-      font-size: 18px;
-      line-height: 1;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
     }
 
     .sidebar > a {
@@ -670,14 +665,8 @@
     </button>
 
     <div class="sidebar-language">
-      <a href="https://ldtech-english-site.vercel.app/" class="lang-btn active">
-        <span class="flag">🇺🇸</span>
-        <span>EN</span>
-      </a>
-      <a href="portuguese.html" class="lang-btn">
-        <span class="flag">🇧🇷</span>
-        <span>PT</span>
-      </a>
+      <a href="index.html" class="lang-btn active" aria-label="English version" title="English">🇺🇸</a>
+      <a href="portuguese.html" class="lang-btn" aria-label="Versão em português" title="Português">🇧🇷</a>
     </div>
 
     <a href="#home">Home</a>
