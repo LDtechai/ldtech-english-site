@@ -113,33 +113,34 @@
       margin-bottom: 20px;
     }
 
-    .lang-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      text-decoration: none;
-      font-size: 26px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.10);
-      background: rgba(0,0,0,0.03);
-      color: #000000;
-      transition: 0.2s ease;
-      line-height: 1;
-    }
+  .lang-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  font-size: 26px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #000000;
+  background: #ffffff;
+  color: #000000;
+  transition: 0.2s ease;
+  line-height: 1;
+}
 
-    .lang-btn:hover {
-      background: rgba(0,0,0,0.08);
-      transform: translateY(-1px);
-    }
+.lang-btn:hover {
+  background: #f5f5f5;
+  transform: translateY(-1px);
+}
 
-    .lang-btn.active {
-      background: #000000;
-      border-color: #000000;
-      box-shadow: 0 10px 22px rgba(0,0,0,0.10);
-    }
+.lang-btn.active {
+  background: #ffffff;
+  border: 1px solid #000000;
+  color: #000000;
+  box-shadow: none;
+}
 
     .sidebar > a {
       display: block;
@@ -664,11 +665,11 @@
       <img src="/ldtech-logo.png" alt="LDtech logo" />
     </button>
 
-    <div class="sidebar-language">
-      <a href="index.html" class="lang-btn active" aria-label="English version" title="English">🇺🇸</a>
-      <a href="portuguese.html" class="lang-btn" aria-label="Versão em português" title="Português">🇧🇷</a>
-    </div>
-
+   <div class="sidebar-language">
+  <a href="index.html" class="lang-btn active" aria-label="English version" title="English">🇺🇸</a>
+  <a href="portuguese.html" class="lang-btn" aria-label="Versão em português" title="Português">🇧🇷</a>
+</div>
+    
     <a href="#home">Home</a>
     <a href="#services">Services</a>
     <a href="#how-it-works">Process</a>
