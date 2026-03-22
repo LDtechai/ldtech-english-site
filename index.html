@@ -99,20 +99,11 @@
       overflow: hidden;
     }
 
-    .menu-icon {
-      width: 34px;
-      height: 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .menu-icon span {
+    .sidebar-toggle img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
       display: block;
-      width: 100%;
-      height: 3px;
-      border-radius: 999px;
-      background: #000000;
     }
 
     .sidebar > a {
@@ -349,11 +340,17 @@
       overflow: hidden;
     }
 
-    .chat-user svg,
-    .chat-logo svg {
+    .chat-user svg {
       width: 46px;
       height: 46px;
       fill: rgba(0,0,0,0.82);
+      display: block;
+    }
+
+    .chat-logo img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
       display: block;
     }
 
@@ -600,14 +597,23 @@
         height: 78px;
       }
 
+      .sidebar-toggle img {
+        width: 52px;
+        height: 52px;
+      }
+
       .chat-user,
       .chat-logo {
         width: 68px;
         height: 68px;
       }
 
-      .chat-user svg,
-      .chat-logo svg {
+      .chat-user svg {
+        width: 42px;
+        height: 42px;
+      }
+
+      .chat-logo img {
         width: 42px;
         height: 42px;
       }
@@ -619,11 +625,7 @@
 
   <aside class="sidebar" id="sidebar">
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open or close menu">
-      <div class="menu-icon" aria-hidden="true">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+      <img src="/ldtech-logo.png" alt="LDtech logo" />
     </button>
 
     <a href="#home">Home</a>
@@ -685,9 +687,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-              </svg>
+              <img src="/ldtech-logo.png" alt="LDtech logo" />
             </span>
             <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
           </div>
@@ -701,9 +701,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo" aria-hidden="true">
-              <svg viewBox="0 0 24 24">
-                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
-              </svg>
+              <img src="/ldtech-logo.png" alt="LDtech logo" />
             </span>
             <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
           </div>
