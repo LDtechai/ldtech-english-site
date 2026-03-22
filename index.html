@@ -99,12 +99,20 @@
       overflow: hidden;
     }
 
-    .sidebar-toggle img {
-      width: 62px;
-      height: 62px;
+    .menu-icon {
+      width: 34px;
+      height: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .menu-icon span {
       display: block;
-      object-fit: contain;
-      flex-shrink: 0;
+      width: 100%;
+      height: 3px;
+      border-radius: 999px;
+      background: #000000;
     }
 
     .sidebar > a {
@@ -341,19 +349,12 @@
       overflow: hidden;
     }
 
-    .chat-user svg {
+    .chat-user svg,
+    .chat-logo svg {
       width: 46px;
       height: 46px;
       fill: rgba(0,0,0,0.82);
       display: block;
-    }
-
-    .chat-logo img {
-      width: 46px;
-      height: 46px;
-      object-fit: contain;
-      display: block;
-      flex-shrink: 0;
     }
 
     .message-text {
@@ -599,19 +600,14 @@
         height: 78px;
       }
 
-      .sidebar-toggle img {
-        width: 56px;
-        height: 56px;
-      }
-
       .chat-user,
       .chat-logo {
         width: 68px;
         height: 68px;
       }
 
-      .chat-logo img,
-      .chat-user svg {
+      .chat-user svg,
+      .chat-logo svg {
         width: 42px;
         height: 42px;
       }
@@ -623,7 +619,11 @@
 
   <aside class="sidebar" id="sidebar">
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open or close menu">
-      <img src="/ChatGPT%20Image%2012%20de%20mar.%20de%202026,%2016_05_09.png" alt="LDtech logo" />
+      <div class="menu-icon" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </button>
 
     <a href="#home">Home</a>
@@ -684,8 +684,10 @@
           </div>
 
           <div class="message system-msg">
-            <span class="chat-logo">
-              <img src="/ChatGPT%20Image%2012%20de%20mar.%20de%202026,%2016_05_09.png" alt="LDtech logo" />
+            <span class="chat-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+              </svg>
             </span>
             <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
           </div>
@@ -698,8 +700,10 @@
           </div>
 
           <div class="message system-msg">
-            <span class="chat-logo">
-              <img src="/ChatGPT%20Image%2012%20de%20mar.%20de%202026,%2016_05_09.png" alt="LDtech logo" />
+            <span class="chat-logo" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/>
+              </svg>
             </span>
             <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
           </div>
