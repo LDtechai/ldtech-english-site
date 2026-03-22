@@ -105,6 +105,7 @@
       display: block;
       object-fit: contain;
       flex-shrink: 0;
+      filter: brightness(0) saturate(100%);
     }
 
     .sidebar > a {
@@ -354,6 +355,7 @@
       object-fit: contain;
       display: block;
       flex-shrink: 0;
+      filter: brightness(0) saturate(100%);
     }
 
     .message-text {
@@ -623,7 +625,7 @@
 
   <aside class="sidebar" id="sidebar">
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open or close menu">
-      <img class="ldtech-inline-logo" alt="" />
+      <img src="/ldtech-logo.png" alt="LDtech logo" />
     </button>
 
     <a href="#home">Home</a>
@@ -685,7 +687,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo">
-              <img class="ldtech-inline-logo" alt="" />
+              <img src="/ldtech-logo.png" alt="LDtech logo" />
             </span>
             <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
           </div>
@@ -699,7 +701,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo">
-              <img class="ldtech-inline-logo" alt="" />
+              <img src="/ldtech-logo.png" alt="LDtech logo" />
             </span>
             <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
           </div>
@@ -846,12 +848,6 @@
   </footer>
 
   <script>
-    const embeddedLogo = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANwAAAClCAYAAADwC4QfAAA0yklEQVR42u2deXxU1f3HP5MZ2eQk2QSyJGSXhACSWAImQGAiqCCgiGJd7W21ddXqW61WrbaWttXWlqK1WlHbVq2r1aWt1jYKCIiKKCAiiAjk3hBSQggPZJJN5pn5/nBysplM5pzznHvmfj4eDzNzzpw5vM95zvM553vO+R0REREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREREdH/ID7W70D8N7gG4I8B3gHwHoDzANwP8G4A3wH4IYDzADwNwG8BvgHwQYBfAfgUgAsAfg/gxwD+E+CXAN4D8DyAzwP4LIDvA/gmwBMAngbwZgD/BfBxgNcAnAFgFcA/BHAygL8C8HEAVwJ4EsDHAZ4B8FeA5wH8A4A/AvhhgL8A8B6AzwF4E8BfArgSwP8C+CiA7wF4J8CnAVwK4AcATgPwI4C3APwZwJ8A+B2A1wF8DOAuAF8G8AeAXwL4JIBPAXgVwJ8A3gPwTQDnAHwM4B8A3gHwK4CfA/g3gO8B+BPAewDeAfAfgF8AuAxgOQDvBPgPgP8D8I8A3gHwb4CfAHgEwDsA3gXwCYBfA/gcgA8A+AvAPwD4A4CnAHwL4K8A3gPwP4C/APgXgMcAfAXgUQD/BvAegH8AuAPAQwD+F8CnAHwZwD8C+CiAzwP4EoBfA/gSgPsAfAfAPwH4FICPA/gDgN8A+AKA5wA8CeA5AP8N4F8AvwRwFcB3AewDeBTAOQBfA/gqgLcA/AnA5wC8AuB9AL8J4BsALgH4FYD3AewCeBPAfQAvA/gVgM8DeBnAewDeB/ApgOcBvAbgQwA/BvABgP8A+D2A2wC8AuDbAH4I4HcA3gPwK4BfBfAngL8C8CaAHwH4EoDPA/gagLcA/AvA9wD8BsD3ATwL4E0AzwN4FcB7AP4K4McA3gPwVQDvA3gPwN8B+BSAywF+CuCvAH4B4LEA7wX4MIBvAvgVgH8D+AaAzwF4D8A7AD4N4C8AzwP4BYCfA/g0gD8C+HcAfw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";
-
-    document.querySelectorAll(".ldtech-inline-logo").forEach(img => {
-      img.src = embeddedLogo;
-    });
-
     const sidebar = document.getElementById("sidebar");
     const sidebarToggle = document.getElementById("sidebarToggle");
     const sidebarOverlay = document.getElementById("sidebarOverlay");
