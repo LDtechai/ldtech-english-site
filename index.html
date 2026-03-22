@@ -82,10 +82,10 @@
     .sidebar-toggle {
       position: absolute;
       top: 0;
-      right: -82px;
+      right: -86px;
       z-index: 10001;
-      width: 82px;
-      height: 82px;
+      width: 86px;
+      height: 86px;
       border: 1px solid rgba(0,0,0,0.10);
       border-left: none;
       background: rgba(255,255,255,0.98);
@@ -99,8 +99,8 @@
     }
 
     .sidebar-toggle img {
-      width: 62px;
-      height: 62px;
+      width: 64px;
+      height: 64px;
       display: block;
       object-fit: contain;
     }
@@ -328,32 +328,28 @@
       gap: 16px;
     }
 
+    /* same proportions as user icon container */
     .chat-user,
     .chat-logo {
-      width: 82px;
-      height: 82px;
+      width: 74px;
+      height: 74px;
       flex-shrink: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
     }
 
-    .chat-logo {
-      padding: 4px;
-    }
-
-    .chat-logo img {
-      width: 78px;
-      height: 78px;
-      object-fit: contain;
-      display: block;
-      flex-shrink: 0;
-    }
-
     .chat-user svg {
       width: 46px;
       height: 46px;
       fill: rgba(0,0,0,0.82);
+      display: block;
+    }
+
+    .chat-logo img {
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
       display: block;
     }
 
@@ -554,7 +550,6 @@
       text-align: center;
     }
 
-    /* Logo fixes */
     .brand-logo-black {
       filter: brightness(0) saturate(100%);
     }
@@ -600,26 +595,26 @@
       }
 
       .sidebar-toggle {
-        right: -74px;
-        width: 74px;
-        height: 74px;
-        padding: 8px;
+        right: -78px;
+        width: 78px;
+        height: 78px;
       }
 
       .sidebar-toggle img {
-        width: 56px;
-        height: 56px;
+        width: 58px;
+        height: 58px;
       }
 
       .chat-user,
       .chat-logo {
-        width: 72px;
-        height: 72px;
-      }
-
-      .chat-logo img {
         width: 68px;
         height: 68px;
+      }
+
+      .chat-logo img,
+      .chat-user svg {
+        width: 42px;
+        height: 42px;
       }
     }
   </style>
@@ -629,7 +624,7 @@
 
   <aside class="sidebar" id="sidebar">
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open or close menu">
-      <img src="logo LDtech.png" alt="LDtech logo" class="brand-logo-black" />
+      <img src="./ldtech-logo.png" alt="LDtech logo" class="brand-logo-black" />
     </button>
 
     <a href="#home">Home</a>
@@ -691,7 +686,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo">
-              <img src="logo LDtech.png" alt="LDtech logo" class="brand-logo-black" />
+              <img src="./ldtech-logo.png" alt="LDtech logo" class="brand-logo-black" />
             </span>
             <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
           </div>
@@ -705,7 +700,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo">
-              <img src="logo LDtech.png" alt="LDtech logo" class="brand-logo-black" />
+              <img src="./ldtech-logo.png" alt="LDtech logo" class="brand-logo-black" />
             </span>
             <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
           </div>
