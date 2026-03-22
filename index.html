@@ -107,6 +107,36 @@
       filter: brightness(0) saturate(100%);
     }
 
+    .sidebar-language {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .lang-btn {
+      flex: 1;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.03);
+      color: #000000;
+      transition: 0.2s ease;
+    }
+
+    .lang-btn:hover {
+      background: rgba(0,0,0,0.08);
+    }
+
+    .lang-btn.active {
+      background: #000000;
+      color: #ffffff;
+      border-color: #000000;
+    }
+
     .sidebar > a {
       display: block;
       text-decoration: none;
@@ -629,6 +659,11 @@
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open or close menu">
       <img src="/ldtech-logo.png" alt="LDtech logo" />
     </button>
+
+    <div class="sidebar-language">
+      <a href="https://ldtech-english-site.vercel.app/" class="lang-btn active">EN</a>
+      <a href="https://ldtech-s530va5c.durable.site/" class="lang-btn">PT</a>
+    </div>
 
     <a href="#home">Home</a>
     <a href="#services">Services</a>
