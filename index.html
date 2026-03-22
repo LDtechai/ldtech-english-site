@@ -12,18 +12,18 @@
     }
 
     :root {
-  --bg-1: #000000;
-  --bg-2: #050505;
-  --bg-3: #0a0a0a;
-  --card: rgba(14, 14, 14, 0.92);
-  --card-2: rgba(22, 22, 22, 0.95);
-  --text: #f5f5f5;
-  --muted: rgba(255,255,255,0.72);
-  --line: rgba(255,255,255,0.10);
-  --primary: #ffffff;
-  --primary-2: #d9d9d9;
-  --soft-blue: rgba(255,255,255,0.08);
-}
+      --bg-1: #ffffff;
+      --bg-2: #fbfbfb;
+      --bg-3: #f3f3f3;
+      --card: rgba(255, 255, 255, 0.92);
+      --card-2: rgba(245, 245, 245, 0.96);
+      --text: #0a0a0a;
+      --muted: rgba(0,0,0,0.68);
+      --line: rgba(0,0,0,0.10);
+      --primary: #000000;
+      --primary-2: #2a2a2a;
+      --soft-blue: rgba(0,0,0,0.06);
+    }
 
     html {
       scroll-behavior: smooth;
@@ -31,19 +31,19 @@
     }
 
     body {
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-    linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.015) 24%, rgba(255,255,255,0) 52%),
-    radial-gradient(circle at 14% 18%, rgba(255,255,255,0.07), transparent 24%),
-    radial-gradient(circle at 82% 22%, rgba(255,255,255,0.05), transparent 22%),
-    radial-gradient(circle at 20% 84%, rgba(255,255,255,0.04), transparent 24%),
-    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 42%, var(--bg-3) 100%);
-  background-attachment: fixed;
-  color: var(--text);
-  line-height: 1.6;
-  padding-top: 100px;
-  overflow-x: hidden;
-}
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        linear-gradient(135deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.012) 24%, rgba(0,0,0,0) 52%),
+        radial-gradient(circle at 14% 18%, rgba(0,0,0,0.05), transparent 24%),
+        radial-gradient(circle at 82% 22%, rgba(0,0,0,0.04), transparent 22%),
+        radial-gradient(circle at 20% 84%, rgba(0,0,0,0.03), transparent 24%),
+        linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 42%, var(--bg-3) 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: 100px;
+      overflow-x: hidden;
+    }
 
     body::before {
       content: "";
@@ -51,12 +51,11 @@
       inset: 0;
       pointer-events: none;
       background:
-        linear-gradient(120deg, rgba(255,255,255,0.035) 0%, rgba(255,255,255,0.01) 26%, rgba(255,255,255,0) 54%),
-        linear-gradient(300deg, rgba(91,108,255,0.05) 0%, rgba(91,108,255,0) 40%);
+        linear-gradient(120deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0.008) 26%, rgba(0,0,0,0) 54%),
+        linear-gradient(300deg, rgba(0,0,0,0.03) 0%, rgba(0,0,0,0) 40%);
       z-index: 0;
     }
 
-    header,
     .hero,
     .section,
     .cta,
@@ -65,22 +64,24 @@
       z-index: 1;
     }
 
-   header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  z-index: 99999;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  padding: 8px 26px;
-  border-bottom: 1px solid var(--line);
-  background: rgba(0, 0, 0, 0.92);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-}
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 8px 26px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
 
     .brand {
       display: flex;
@@ -113,7 +114,7 @@
     }
 
     nav a {
-      color: rgba(245,247,251,0.9);
+      color: rgba(0,0,0,0.86);
       text-decoration: none;
       font-size: 15px;
       font-weight: 600;
@@ -121,7 +122,7 @@
     }
 
     nav a:hover {
-      color: #ffffff;
+      color: #000000;
     }
 
     .socials {
@@ -134,19 +135,19 @@
       width: 34px;
       height: 34px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.12);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(0,0,0,0.12);
+      background: rgba(0,0,0,0.03);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      color: rgba(245,247,251,0.92);
+      color: rgba(0,0,0,0.88);
       transition: 0.2s ease;
     }
 
     .socials a:hover {
-      background: rgba(91,108,255,0.16);
-      border-color: rgba(142,167,255,0.35);
+      background: rgba(0,0,0,0.08);
+      border-color: rgba(0,0,0,0.18);
     }
 
     .socials svg {
@@ -220,15 +221,15 @@
     }
 
     .btn-primary {
-  color: #000;
-  background: #fff;
-  box-shadow: 0 16px 34px rgba(255,255,255,0.10);
-}
+      color: #ffffff;
+      background: #000000;
+      box-shadow: 0 16px 34px rgba(0,0,0,0.12);
+    }
 
     .btn-secondary {
-      color: white;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.03);
+      color: #000000;
+      border: 1px solid rgba(0,0,0,0.15);
+      background: rgba(0,0,0,0.03);
     }
 
     .hero-numbers {
@@ -237,28 +238,28 @@
     }
 
     .hero-numbers a {
-      color: white;
+      color: #000000;
       text-decoration: none;
       font-weight: 700;
     }
 
     .demo-box {
-      background: linear-gradient(180deg, rgba(10,19,38,0.96), rgba(8,15,30,0.96));
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,246,246,0.96));
       border: 1px solid var(--line);
       border-radius: 30px;
       padding: 24px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.10);
     }
 
     .demo-inner {
-      border: 1px solid rgba(255,255,255,0.07);
+      border: 1px solid rgba(0,0,0,0.07);
       border-radius: 24px;
       padding: 24px;
-      background: rgba(4,10,20,0.58);
+      background: rgba(255,255,255,0.75);
     }
 
     .demo-label {
-  color: #ffffff;
+      color: #000000;
       font-size: 14px;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -274,41 +275,41 @@
     }
 
     .user-msg {
-      background: rgba(255,255,255,0.06);
-      color: rgba(255,255,255,0.93);
+      background: rgba(0,0,0,0.05);
+      color: rgba(0,0,0,0.92);
       display: flex;
       align-items: center;
       gap: 16px;
     }
 
     .system-msg {
-  background: rgba(255,255,255,0.08);
-  color: white;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+      background: rgba(0,0,0,0.08);
+      color: #000000;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
 
-   .chat-logo,
-.chat-user {
-  width: 90px;
-  height: 90px;
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
+    .chat-logo,
+    .chat-user {
+      width: 62px;
+      height: 62px;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-   .chat-logo img {
-  width: 90px;
-  height: auto;
-  display: block;
-}
+    .chat-logo img {
+      width: 62px;
+      height: auto;
+      display: block;
+    }
 
-   .chat-user svg {
-  width: 70px;
-  height: 70px;
-      fill: rgba(255,255,255,0.9);
+    .chat-user svg {
+      width: 48px;
+      height: 48px;
+      fill: rgba(0,0,0,0.82);
       display: block;
     }
 
@@ -316,6 +317,7 @@
       font-size: 17px;
       line-height: 1.55;
       letter-spacing: -0.015em;
+      color: inherit;
     }
 
     .stats {
@@ -326,12 +328,12 @@
     }
 
     .stat {
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(0,0,0,0.08);
+      background: rgba(0,0,0,0.04);
       border-radius: 18px;
       padding: 20px;
       font-size: 17px;
-      color: rgba(255,255,255,0.95);
+      color: rgba(0,0,0,0.95);
     }
 
     .stat strong {
@@ -349,7 +351,7 @@
     }
 
     .section-title {
-  color: #ffffff;
+      color: #000000;
       font-size: 13px;
       font-weight: 700;
       letter-spacing: 0.18em;
@@ -380,11 +382,11 @@
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(13,24,48,0.92), rgba(10,18,36,0.92));
-      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,247,247,0.95));
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 24px;
       padding: 24px;
-      box-shadow: 0 12px 32px rgba(0,0,0,0.14);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.06);
     }
 
     .card h4,
@@ -408,8 +410,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: rgba(91,108,255,0.16);
-      color: var(--primary-2);
+      background: rgba(0,0,0,0.08);
+      color: #000000;
       font-weight: 700;
       margin-bottom: 16px;
     }
@@ -424,10 +426,10 @@
     .pill {
       padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(0,0,0,0.10);
+      background: rgba(0,0,0,0.03);
       font-size: 14px;
-      color: rgba(255,255,255,0.94);
+      color: rgba(0,0,0,0.92);
       letter-spacing: -0.01em;
     }
 
@@ -435,8 +437,8 @@
       margin-top: 30px;
       padding: 28px;
       border-radius: 28px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: linear-gradient(135deg, rgba(91,108,255,0.14), rgba(142,167,255,0.08));
+      border: 1px solid rgba(0,0,0,0.08);
+      background: linear-gradient(135deg, rgba(0,0,0,0.04), rgba(0,0,0,0.02));
     }
 
     .why-box ul {
@@ -446,7 +448,7 @@
 
     .why-box li {
       margin-bottom: 10px;
-      color: rgba(255,255,255,0.88);
+      color: rgba(0,0,0,0.84);
     }
 
     .contact-box {
@@ -457,8 +459,8 @@
     }
 
     .contact-card {
-      background: linear-gradient(180deg, rgba(13,24,48,0.92), rgba(10,18,36,0.92));
-      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(247,247,247,0.95));
+      border: 1px solid rgba(0,0,0,0.08);
       border-radius: 24px;
       padding: 24px;
     }
@@ -470,7 +472,7 @@
     }
 
     .contact-card a {
-      color: white;
+      color: #000000;
       text-decoration: none;
       font-weight: 700;
       font-size: 18px;
@@ -501,7 +503,7 @@
     footer {
       border-top: 1px solid var(--line);
       padding: 24px 40px 36px;
-      color: rgba(255,255,255,0.6);
+      color: rgba(0,0,0,0.6);
       font-size: 14px;
       text-align: center;
     }
@@ -736,7 +738,7 @@
     </div>
 
     <div class="why-box">
-      <strong style="color: var(--primary-2);">Why businesses choose LDtech</strong>
+      <strong style="color: #000000;">Why businesses choose LDtech</strong>
       <ul>
         <li>No more missed calls during busy hours</li>
         <li>More booked appointments without adding staff</li>
