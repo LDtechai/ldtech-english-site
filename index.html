@@ -208,12 +208,18 @@
     .hero {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 120px 40px 60px;
+      padding: 88px 40px 72px;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 56px;
-      align-items: center;
+      grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+      gap: 44px;
+      align-items: start;
       scroll-margin-top: 120px;
+    }
+
+    .hero-demo {
+      width: 100%;
+      max-width: 480px;
+      justify-self: end;
     }
 
     .hero h1 {
@@ -274,18 +280,19 @@
     }
 
     .demo-box {
+      width: 100%;
       background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,246,246,0.96));
       border: 1px solid var(--line);
-      border-radius: 30px;
-      padding: 24px;
-      box-shadow: 0 24px 60px rgba(0,0,0,0.10);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: 0 18px 44px rgba(0,0,0,0.08);
     }
 
     .demo-inner {
       border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 24px;
-      padding: 24px;
-      background: rgba(255,255,255,0.75);
+      border-radius: 22px;
+      padding: 18px;
+      background: rgba(255,255,255,0.78);
     }
 
     .demo-label {
@@ -298,9 +305,9 @@
     }
 
     .message {
-      padding: 18px 20px;
-      border-radius: 22px;
-      margin-bottom: 18px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      margin-bottom: 14px;
       font-size: 15px;
     }
 
@@ -320,18 +327,10 @@
       gap: 16px;
     }
 
-    .chat-user {
-      width: 82px;
-      height: 82px;
-      flex-shrink: 0;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
+    .chat-user,
     .chat-logo {
-      width: 220px;
-      height: 220px;
+      width: 74px;
+      height: 74px;
       flex-shrink: 0;
       display: inline-flex;
       align-items: center;
@@ -339,32 +338,32 @@
     }
 
     .chat-logo img {
-      width: 200px;
-      height: 200px;
+      width: 58px;
+      height: 58px;
       object-fit: contain;
       display: block;
       filter: brightness(0) saturate(100%);
     }
 
     .chat-user svg {
-      width: 48px;
-      height: 48px;
+      width: 46px;
+      height: 46px;
       fill: rgba(0,0,0,0.82);
       display: block;
     }
 
     .message-text {
-      font-size: 17px;
-      line-height: 1.55;
-      letter-spacing: -0.015em;
+      font-size: 15px;
+      line-height: 1.5;
+      letter-spacing: -0.012em;
       color: inherit;
     }
 
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 30px;
+      gap: 14px;
+      margin-top: 18px;
     }
 
     .stat {
@@ -564,6 +563,15 @@
         padding-right: 20px;
       }
 
+      .hero {
+        padding-top: 110px;
+      }
+
+      .hero-demo {
+        max-width: 100%;
+        justify-self: stretch;
+      }
+
       .hero h1,
       .section h2,
       .cta h2 {
@@ -589,18 +597,15 @@
         width: 38px;
       }
 
-      .hero {
-        padding-top: 110px;
-      }
-
+      .chat-user,
       .chat-logo {
-        width: 170px;
-        height: 170px;
+        width: 68px;
+        height: 68px;
       }
 
       .chat-logo img {
-        width: 150px;
-        height: 150px;
+        width: 52px;
+        height: 52px;
       }
     }
   </style>
@@ -658,37 +663,39 @@
       </div>
     </div>
 
-    <div class="demo-box">
-      <div class="demo-inner">
-        <div class="demo-label">Live Call Example</div>
+    <div class="hero-demo">
+      <div class="demo-box">
+        <div class="demo-inner">
+          <div class="demo-label">Live Call Example</div>
 
-        <div class="message user-msg">
-          <span class="chat-user" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
-          </span>
-          <span class="message-text">Caller: “Hi, I’d like to schedule an appointment for this week.”</span>
-        </div>
+          <div class="message user-msg">
+            <span class="chat-user" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
+            </span>
+            <span class="message-text">Caller: “Hi, I’d like to schedule an appointment for this week.”</span>
+          </div>
 
-        <div class="message system-msg">
-          <span class="chat-logo"><img src="logo.png" alt="LDtech logo" /></span>
-          <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
-        </div>
+          <div class="message system-msg">
+            <span class="chat-logo"><img src="logo.png" alt="LDtech logo" /></span>
+            <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
+          </div>
 
-        <div class="message user-msg">
-          <span class="chat-user" aria-hidden="true">
-            <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
-          </span>
-          <span class="message-text">Caller: “Do you have anything available Friday afternoon?”</span>
-        </div>
+          <div class="message user-msg">
+            <span class="chat-user" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 12a4.5 4.5 0 1 0-4.5-4.5A4.5 4.5 0 0 0 12 12Zm0 2.2c-3.58 0-6.5 2.3-6.5 5.13 0 .37.3.67.67.67h11.66a.67.67 0 0 0 .67-.67c0-2.83-2.92-5.13-6.5-5.13Z"/></svg>
+            </span>
+            <span class="message-text">Caller: “Do you have anything available Friday afternoon?”</span>
+          </div>
 
-        <div class="message system-msg">
-          <span class="chat-logo"><img src="logo.png" alt="LDtech logo" /></span>
-          <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
-        </div>
+          <div class="message system-msg">
+            <span class="chat-logo"><img src="logo.png" alt="LDtech logo" /></span>
+            <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
+          </div>
 
-        <div class="stats">
-          <div class="stat"><strong>Status</strong><br />Answers calls 24/7</div>
-          <div class="stat"><strong>Booking Flow</strong><br />Ready to qualify and schedule</div>
+          <div class="stats">
+            <div class="stat"><strong>Status</strong><br />Answers calls 24/7</div>
+            <div class="stat"><strong>Booking Flow</strong><br />Ready to qualify and schedule</div>
+          </div>
         </div>
       </div>
     </div>
