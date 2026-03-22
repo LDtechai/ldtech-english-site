@@ -115,6 +115,10 @@
 
     .lang-btn {
       flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
       text-align: center;
       text-decoration: none;
       font-weight: 700;
@@ -135,6 +139,11 @@
       background: #000000;
       color: #ffffff;
       border-color: #000000;
+    }
+
+    .flag {
+      font-size: 18px;
+      line-height: 1;
     }
 
     .sidebar > a {
@@ -661,8 +670,14 @@
     </button>
 
     <div class="sidebar-language">
-      <a href="https://ldtech-english-site.vercel.app/" class="lang-btn active">EN</a>
-      <a href="https://ldtech-s530va5c.durable.site/" class="lang-btn">PT</a>
+      <a href="https://ldtech-english-site.vercel.app/" class="lang-btn active">
+        <span class="flag">🇺🇸</span>
+        <span>EN</span>
+      </a>
+      <a href="portuguese.html" class="lang-btn">
+        <span class="flag">🇧🇷</span>
+        <span>PT</span>
+      </a>
     </div>
 
     <a href="#home">Home</a>
