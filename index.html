@@ -96,13 +96,15 @@
       cursor: pointer;
       box-shadow: 18px 0 40px rgba(0,0,0,0.10);
       padding: 8px;
+      overflow: hidden;
     }
 
     .sidebar-toggle img {
-      width: 64px;
-      height: 64px;
+      width: 62px;
+      height: 62px;
       display: block;
       object-fit: contain;
+      flex-shrink: 0;
     }
 
     .sidebar > a {
@@ -328,7 +330,6 @@
       gap: 16px;
     }
 
-    /* same proportions as user icon container */
     .chat-user,
     .chat-logo {
       width: 74px;
@@ -337,6 +338,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      overflow: hidden;
     }
 
     .chat-user svg {
@@ -351,6 +353,7 @@
       height: 46px;
       object-fit: contain;
       display: block;
+      flex-shrink: 0;
     }
 
     .message-text {
@@ -601,8 +604,8 @@
       }
 
       .sidebar-toggle img {
-        width: 58px;
-        height: 58px;
+        width: 56px;
+        height: 56px;
       }
 
       .chat-user,
@@ -624,7 +627,7 @@
 
   <aside class="sidebar" id="sidebar">
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Open or close menu">
-      <img src="./ldtech-logo.png" alt="LDtech logo" class="brand-logo-black" />
+      <img src="ldtech-logo.png" alt="" class="brand-logo-black" onerror="this.style.display='none'" />
     </button>
 
     <a href="#home">Home</a>
@@ -686,7 +689,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo">
-              <img src="./ldtech-logo.png" alt="LDtech logo" class="brand-logo-black" />
+              <img src="ldtech-logo.png" alt="" class="brand-logo-black" onerror="this.style.display='none'" />
             </span>
             <span class="message-text">“Absolutely. I can help with that now. What day works best for you?”</span>
           </div>
@@ -700,7 +703,7 @@
 
           <div class="message system-msg">
             <span class="chat-logo">
-              <img src="./ldtech-logo.png" alt="LDtech logo" class="brand-logo-black" />
+              <img src="ldtech-logo.png" alt="" class="brand-logo-black" onerror="this.style.display='none'" />
             </span>
             <span class="message-text">“Yes. I have two openings on Friday afternoon, one at 4:00 PM and one at 5:00 PM. Which one works better for you?”</span>
           </div>
