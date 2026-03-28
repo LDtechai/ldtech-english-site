@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LDtech | Recepcionista IA</title>
+  <title>LDtech | Automação de Atendimento</title>
   <style>
     * {
       box-sizing: border-box;
@@ -82,9 +82,9 @@
     .sidebar-toggle {
       position: absolute;
       top: 0;
-      right: -86px;
+      right: -74px;
       z-index: 10001;
-      width: 86px;
+      width: 74px;
       height: 86px;
       border: 1px solid rgba(0,0,0,0.10);
       border-left: none;
@@ -96,12 +96,34 @@
       cursor: pointer;
       box-shadow: 18px 0 40px rgba(0,0,0,0.10);
       padding: 8px;
-      overflow: hidden;
     }
 
-    .sidebar-toggle img {
-      width: 58px;
-      height: 58px;
+    .sidebar-dots {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sidebar-dots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #000000;
+      display: block;
+    }
+
+    .sidebar-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .sidebar-logo img {
+      width: 90px;
+      height: auto;
       object-fit: contain;
       display: block;
       filter: brightness(0) saturate(100%);
@@ -629,14 +651,9 @@
       }
 
       .sidebar-toggle {
-        right: -78px;
-        width: 78px;
+        right: -66px;
+        width: 66px;
         height: 78px;
-      }
-
-      .sidebar-toggle img {
-        width: 52px;
-        height: 52px;
       }
 
       .chat-user,
@@ -662,12 +679,20 @@
 
   <aside class="sidebar" id="sidebar">
     <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir ou fechar menu">
-      <img src="/ldtech-logo.png" alt="Logo da LDtech" />
+      <span class="sidebar-dots" aria-hidden="true">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
     </button>
 
+    <div class="sidebar-logo">
+      <img src="/ldtech-logo.png" alt="Logo da LDtech" />
+    </div>
+
     <div class="sidebar-language">
-      <a href="/" class="lang-btn" aria-label="English version" title="English">🇺🇸</a>
-      <a href="/pt" class="lang-btn active" aria-label="Versão em português" title="Português">🇧🇷</a>
+      <a href="/" class="lang-btn" aria-label="English version" title="English">US</a>
+      <a href="/pt" class="lang-btn active" aria-label="Versão em português" title="Português">BR</a>
     </div>
 
     <a href="#home">Início</a>
@@ -702,10 +727,10 @@
 
       <div class="hero-copy">
         <p>
-          A recepcionista IA da LDtech atende suas ligações 24 horas por dia, 7 dias por semana, para que você nunca perca um cliente por não conseguir responder a tempo.
+          A tecnologia que a LDtech utiliza atende suas ligações 24 horas por dia, 7 dias por semana, para que você nunca perca um cliente por não conseguir responder a tempo.
         </p>
         <p>
-          Enquanto você trabalha, descansa ou está fora do horário comercial, ela responde perguntas, conduz o atendimento e ajuda a transformar contatos em agendamentos.
+          Enquanto você trabalha, descansa ou está fora do horário comercial, a automação responde perguntas, conduz o atendimento e ajuda a transformar contatos em agendamentos.
         </p>
       </div>
 
@@ -759,7 +784,7 @@
 
   <section class="section" id="services">
     <div class="section-title">Serviços</div>
-    <h2>O que a recepcionista IA pode fazer</h2>
+    <h2>O que a automação pode fazer</h2>
     <p class="section-intro">
       Feita para negócios que trabalham com agendamentos e precisam de uma forma confiável de atender ligações, responder dúvidas e transformar mais contatos em clientes.
     </p>
@@ -803,7 +828,7 @@
       <div class="card">
         <div class="step-number">1</div>
         <h4>O cliente liga para o seu negócio</h4>
-        <p>A recepcionista IA atende imediatamente com uma saudação clara e profissional.</p>
+        <p>A tecnologia atende imediatamente com uma saudação clara e profissional.</p>
       </div>
       <div class="card">
         <div class="step-number">2</div>
