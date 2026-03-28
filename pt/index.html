@@ -806,4 +806,117 @@
         <p>A recepcionista IA atende imediatamente com uma saudação clara e profissional.</p>
       </div>
       <div class="card">
-        <div class="step-number">2
+        <div class="step-number">2</div>
+        <h4>O sistema entende o pedido</h4>
+        <p>Ele identifica se a pessoa quer agendar, tirar uma dúvida, verificar disponibilidade ou deixar informações.</p>
+      </div>
+      <div class="card">
+        <div class="step-number">3</div>
+        <h4>A ligação avança para um resultado</h4>
+        <p>O cliente recebe ajuda rapidamente, e o seu negócio conquista mais agendamentos e mais oportunidades qualificadas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="section-title">Segmentos</div>
+    <h2>Perfeito para negócios com agendamento</h2>
+    <p class="section-intro">
+      O sistema de atendimento da LDtech é ideal para empresas que dependem de ligações, retornos e pedidos de agendamento.
+    </p>
+
+    <div class="industries">
+      <div class="pill">Barbearias</div>
+      <div class="pill">Salões de beleza</div>
+      <div class="pill">Spas</div>
+      <div class="pill">Clínicas estéticas</div>
+      <div class="pill">Consultórios odontológicos</div>
+      <div class="pill">Clínicas médicas</div>
+      <div class="pill">Oficinas mecânicas</div>
+      <div class="pill">Restaurantes</div>
+      <div class="pill">Consultores</div>
+      <div class="pill">Negócios de serviços</div>
+    </div>
+
+    <div class="why-box">
+      <strong style="color: #000000;">Por que empresas escolhem a LDtech</strong>
+      <ul>
+        <li>Chega de perder ligações nos horários mais corridos</li>
+        <li>Mais agendamentos sem precisar contratar mais equipe</li>
+        <li>Resposta mais rápida para clientes novos e atuais</li>
+        <li>Melhor experiência para o cliente, mesmo fora do horário comercial</li>
+        <li>Uma primeira impressão mais profissional para quem liga</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="section-title">Contato</div>
+    <h2>Escolha o melhor próximo passo</h2>
+    <p class="section-intro">
+      Você pode testar o sistema de atendimento agora mesmo ou falar direto comigo se quiser tirar dúvidas sobre configuração, preço ou como isso funcionaria no seu negócio.
+    </p>
+
+    <div class="contact-box">
+      <div class="contact-card">
+        <h4>Teste o sistema de atendimento</h4>
+        <p>Ligue para o número de demonstração e experimente a automação você mesmo.</p>
+        <a href="tel:+16369426124">+1 (636) 942-6124</a>
+      </div>
+
+      <div class="contact-card">
+        <h4>Fale comigo para tirar dúvidas</h4>
+        <p>Converse diretamente comigo se quiser mais detalhes ou quiser falar sobre o seu negócio.</p>
+        <a href="tel:+16362525071">+1 (636) 252-5071</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Pronto para transformar mais ligações em clientes agendados?</h2>
+    <p>
+      Coloque um sistema de atendimento profissional na frente do seu negócio e dê a cada pessoa que liga uma resposta mais rápida e mais confiável.
+    </p>
+    <div class="buttons" style="justify-content:center;">
+      <a class="btn btn-primary" href="tel:+16369426124">Testar a Automação</a>
+      <a class="btn btn-secondary" href="tel:+16362525071">Ligar para Tirar Dúvidas</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 LDtech. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebarOverlay = document.getElementById("sidebarOverlay");
+    const sidebarLinks = document.querySelectorAll(".sidebar a[href^='#']");
+
+    function syncOverlay() {
+      if (sidebar.classList.contains("open")) {
+        sidebarOverlay.classList.add("show");
+      } else {
+        sidebarOverlay.classList.remove("show");
+      }
+    }
+
+    function toggleSidebar() {
+      sidebar.classList.toggle("open");
+      syncOverlay();
+    }
+
+    function closeSidebar() {
+      sidebar.classList.remove("open");
+      syncOverlay();
+    }
+
+    sidebarToggle.addEventListener("click", toggleSidebar);
+    sidebarOverlay.addEventListener("click", closeSidebar);
+
+    sidebarLinks.forEach(link => {
+      link.addEventListener("click", closeSidebar);
+    });
+  </script>
+</body>
+</html>
