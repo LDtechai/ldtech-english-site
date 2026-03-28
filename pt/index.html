@@ -88,27 +88,159 @@
       background: rgba(255,255,255,0.98);
       border-right: 1px solid rgba(0,0,0,0.10);
       box-shadow: 18px 0 40px rgba(0,0,0,0.10);
-      padding: 100px 24px 24px;
+      padding: 14px 22px 18px;
       z-index: 10002;
       transform: translateX(calc(-1 * var(--sidebar-width)));
       transition: transform 0.25s ease;
-      overflow-x: hidden;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      scrollbar-width: thin;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
     }
 
     .sidebar.open {
       transform: translateX(0);
     }
 
-    .sidebar::-webkit-scrollbar {
-      width: 8px;
+    .sidebar-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 6px 0 14px;
+      flex: 0 0 auto;
     }
 
-    .sidebar::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.18);
-      border-radius: 999px;
+    .sidebar-logo img {
+      width: 104px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      filter: brightness(0) saturate(100%);
+    }
+
+    .sidebar-language {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 12px;
+      flex: 0 0 auto;
+    }
+
+    .lang-btn {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      text-decoration: none;
+      font-size: 22px;
+      padding: 11px 10px;
+      border-radius: 18px;
+      border: 1px solid #000000;
+      background: #ffffff;
+      color: #000000;
+      transition: 0.2s ease;
+      line-height: 1;
+      min-height: 56px;
+    }
+
+    .lang-btn:hover {
+      background: #f5f5f5;
+      transform: translateY(-1px);
+    }
+
+    .lang-btn.active {
+      background: #ffffff;
+      border: 1px solid #000000;
+      color: #000000;
+      box-shadow: none;
+    }
+
+    .sidebar-nav {
+      flex: 0 0 auto;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      text-decoration: none;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+
+    .sidebar-nav a:hover {
+      opacity: 0.65;
+    }
+
+    .sidebar-cta {
+      margin-top: 12px;
+      display: grid;
+      gap: 10px;
+      flex: 0 0 auto;
+    }
+
+    .sidebar-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      border-radius: 18px;
+      padding: 14px 14px;
+      transition: 0.2s ease;
+      font-size: 16px;
+      min-height: 56px;
+    }
+
+    .sidebar-btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .sidebar-btn-primary {
+      background: #000000;
+      color: #ffffff;
+      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+    }
+
+    .sidebar-btn-secondary {
+      background: rgba(0,0,0,0.03);
+      color: #000000;
+      border: 1px solid rgba(0,0,0,0.10);
+    }
+
+    .sidebar-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 12px;
+      flex: 0 0 auto;
+    }
+
+    .sidebar-socials a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 54px;
+      border-radius: 18px;
+      background: rgba(0,0,0,0.03);
+      border: 1px solid rgba(0,0,0,0.10);
+      text-decoration: none;
+      color: #000000;
+      padding: 0;
+    }
+
+    .sidebar-socials a:hover {
+      opacity: 0.7;
+    }
+
+    .sidebar-socials svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+      display: block;
     }
 
     .sidebar-toggle {
@@ -131,11 +263,6 @@
       transition: left 0.25s ease;
     }
 
-    .sidebar.open + .sidebar-toggle,
-    .sidebar.sidebar-open-toggle-helper {
-      left: var(--sidebar-width);
-    }
-
     .sidebar-dots {
       display: flex;
       flex-direction: column;
@@ -154,7 +281,7 @@
 
     .outside-logo {
       position: fixed;
-      top: 12px;
+      top: 10px;
       left: calc(var(--toggle-width) + 10px);
       z-index: 10001;
       width: var(--outside-logo-width);
@@ -174,145 +301,8 @@
       filter: brightness(0) saturate(100%);
     }
 
-    .sidebar.open ~ .outside-logo {
+    .outside-logo.hidden {
       opacity: 0;
-    }
-
-    .sidebar-logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .sidebar-logo img {
-      width: 90px;
-      height: auto;
-      object-fit: contain;
-      display: block;
-      filter: brightness(0) saturate(100%);
-    }
-
-    .sidebar-language {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .lang-btn {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      text-decoration: none;
-      font-size: 26px;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid #000000;
-      background: #ffffff;
-      color: #000000;
-      transition: 0.2s ease;
-      line-height: 1;
-    }
-
-    .lang-btn:hover {
-      background: #f5f5f5;
-      transform: translateY(-1px);
-    }
-
-    .lang-btn.active {
-      background: #ffffff;
-      border: 1px solid #000000;
-      color: #000000;
-      box-shadow: none;
-    }
-
-    .sidebar > a {
-      display: block;
-      text-decoration: none;
-      color: #000000;
-      font-size: 19px;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.08);
-    }
-
-    .sidebar > a:hover {
-      opacity: 0.65;
-    }
-
-    .sidebar-cta {
-      margin-top: 22px;
-      display: grid;
-      gap: 12px;
-    }
-
-    .sidebar-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      border-radius: 16px;
-      padding: 14px 16px;
-      transition: 0.2s ease;
-    }
-
-    .sidebar-cta .sidebar-btn {
-      border-bottom: none;
-      font-size: 18px;
-    }
-
-    .sidebar-btn:hover {
-      transform: translateY(-1px);
-    }
-
-    .sidebar-cta .sidebar-btn-primary {
-      background: #000000;
-      color: #ffffff;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-    }
-
-    .sidebar-cta .sidebar-btn-secondary {
-      background: rgba(0,0,0,0.03);
-      color: #000000;
-      border: 1px solid rgba(0,0,0,0.10);
-    }
-
-    .sidebar-socials {
-      display: flex;
-      gap: 12px;
-      margin-top: 18px;
-      padding-bottom: 24px;
-    }
-
-    .sidebar-socials a {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.10);
-      text-decoration: none;
-      color: #000000;
-      font-weight: 700;
-      padding: 0;
-    }
-
-    .sidebar-socials a:hover {
-      opacity: 0.7;
-    }
-
-    .sidebar-socials svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-      display: block;
     }
 
     .hero {
@@ -662,11 +652,11 @@
 
     @media (max-width: 980px) {
       :root {
-        --sidebar-width: 260px;
-        --toggle-width: 66px;
-        --toggle-height: 78px;
-        --outside-logo-width: 78px;
-        --outside-logo-height: 78px;
+        --sidebar-width: 326px;
+        --toggle-width: 82px;
+        --toggle-height: 118px;
+        --outside-logo-width: 92px;
+        --outside-logo-height: 92px;
       }
 
       .hero,
@@ -680,12 +670,12 @@
       .hero,
       .section,
       .cta {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 26px;
+        padding-right: 26px;
       }
 
       .hero {
-        padding-top: 110px;
+        padding-top: 150px;
       }
 
       .hero-demo {
@@ -696,7 +686,7 @@
       .hero h1,
       .section h2,
       .cta h2 {
-        font-size: 40px;
+        font-size: 38px;
       }
 
       .btn {
@@ -704,17 +694,60 @@
       }
 
       .sidebar {
-        padding-top: 92px;
+        padding: 12px 12px 14px;
+      }
+
+      .sidebar-logo {
+        margin: 2px 0 10px;
+      }
+
+      .sidebar-logo img {
+        width: 108px;
+      }
+
+      .sidebar-language {
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+
+      .lang-btn {
+        font-size: 20px;
+        min-height: 50px;
+        padding: 10px 8px;
+      }
+
+      .sidebar-nav a {
+        font-size: 18px;
+        padding: 11px 0;
+      }
+
+      .sidebar-cta {
+        margin-top: 10px;
+        gap: 8px;
+      }
+
+      .sidebar-btn {
+        min-height: 52px;
+        padding: 12px 12px;
+        font-size: 15px;
+      }
+
+      .sidebar-socials {
+        margin-top: 10px;
+      }
+
+      .sidebar-socials a {
+        height: 48px;
       }
 
       .outside-logo {
-        top: 10px;
-        left: calc(var(--toggle-width) + 8px);
+        top: 16px;
+        left: 96px;
       }
 
       .outside-logo img {
-        width: 64px;
-        height: 64px;
+        width: 78px;
+        height: 78px;
       }
 
       .chat-user,
@@ -748,11 +781,13 @@
       <a href="/pt" class="lang-btn active" aria-label="Versão em português" title="Português">BR</a>
     </div>
 
-    <a href="#home">Início</a>
-    <a href="#services">Serviços</a>
-    <a href="#how-it-works">Processo</a>
-    <a href="#about">Segmentos</a>
-    <a href="#contact">Contato</a>
+    <nav class="sidebar-nav">
+      <a href="#home">Início</a>
+      <a href="#services">Serviços</a>
+      <a href="#how-it-works">Processo</a>
+      <a href="#about">Segmentos</a>
+      <a href="#contact">Contato</a>
+    </nav>
 
     <div class="sidebar-cta">
       <a class="sidebar-btn sidebar-btn-primary" href="tel:+16369426124">Testar a Automação</a>
@@ -782,7 +817,7 @@
     </span>
   </button>
 
-  <div class="outside-logo" aria-hidden="true">
+  <div class="outside-logo" id="outsideLogo" aria-hidden="true">
     <img src="/ldtech-logo.png" alt="Logo da LDtech" />
   </div>
 
@@ -981,25 +1016,30 @@
     const sidebar = document.getElementById("sidebar");
     const sidebarToggle = document.getElementById("sidebarToggle");
     const sidebarOverlay = document.getElementById("sidebarOverlay");
+    const outsideLogo = document.getElementById("outsideLogo");
 
-    function syncOverlay() {
+    function syncUI() {
+      const sidebarWidth = getComputedStyle(document.documentElement).getPropertyValue("--sidebar-width").trim();
+
       if (sidebar.classList.contains("open")) {
         sidebarOverlay.classList.add("show");
-        sidebarToggle.style.left = getComputedStyle(document.documentElement).getPropertyValue("--sidebar-width").trim();
+        sidebarToggle.style.left = sidebarWidth;
+        outsideLogo.classList.add("hidden");
       } else {
         sidebarOverlay.classList.remove("show");
         sidebarToggle.style.left = "0px";
+        outsideLogo.classList.remove("hidden");
       }
     }
 
     function toggleSidebar() {
       sidebar.classList.toggle("open");
-      syncOverlay();
+      syncUI();
     }
 
     function closeSidebar() {
       sidebar.classList.remove("open");
-      syncOverlay();
+      syncUI();
     }
 
     sidebarToggle.addEventListener("click", toggleSidebar);
@@ -1009,7 +1049,8 @@
       link.addEventListener("click", closeSidebar);
     });
 
-    window.addEventListener("resize", syncOverlay);
+    window.addEventListener("resize", syncUI);
+    syncUI();
   </script>
 </body>
 </html>
