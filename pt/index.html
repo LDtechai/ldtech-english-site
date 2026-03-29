@@ -281,7 +281,7 @@
     .site-logo-fixed {
       position: fixed;
       top: 18px;
-      left: 96px;
+      left: 135px;
       z-index: 10001;
       width: 108px;
       display: flex;
@@ -686,7 +686,7 @@
 
       .site-logo-fixed {
         top: 18px;
-        left: 96px;
+        left: 135px;
         width: 108px;
       }
 
@@ -958,7 +958,9 @@
     const sidebarOverlay = document.getElementById("sidebarOverlay");
 
     function syncUI() {
-      const sidebarWidth = getComputedStyle(document.documentElement).getPropertyValue("--sidebar-width").trim();
+      const sidebarWidth = getComputedStyle(document.documentElement)
+        .getPropertyValue("--sidebar-width")
+        .trim();
 
       if (sidebar.classList.contains("open")) {
         sidebarOverlay.classList.add("show");
