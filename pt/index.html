@@ -278,7 +278,7 @@
       display: block;
     }
 
-    .fixed-site-logo {
+    .site-logo-fixed {
       position: fixed;
       top: 18px;
       left: 96px;
@@ -290,16 +290,12 @@
       pointer-events: none;
     }
 
-    .fixed-site-logo img {
+    .site-logo-fixed img {
       width: 100%;
       height: auto;
       object-fit: contain;
       display: block;
       filter: brightness(0) saturate(100%);
-    }
-
-    .fixed-site-logo.hidden {
-      opacity: 0;
     }
 
     .hero {
@@ -688,7 +684,7 @@
         width: 100%;
       }
 
-      .fixed-site-logo {
+      .site-logo-fixed {
         top: 18px;
         left: 96px;
         width: 108px;
@@ -761,7 +757,7 @@
     </span>
   </button>
 
-  <div class="fixed-site-logo" id="fixedSiteLogo" aria-hidden="true">
+  <div class="site-logo-fixed" aria-hidden="true">
     <img src="/ldtech-logo.png" alt="Logo da LDtech" />
   </div>
 
@@ -960,7 +956,6 @@
     const sidebar = document.getElementById("sidebar");
     const sidebarToggle = document.getElementById("sidebarToggle");
     const sidebarOverlay = document.getElementById("sidebarOverlay");
-    const fixedSiteLogo = document.getElementById("fixedSiteLogo");
 
     function syncUI() {
       const sidebarWidth = getComputedStyle(document.documentElement).getPropertyValue("--sidebar-width").trim();
@@ -968,11 +963,9 @@
       if (sidebar.classList.contains("open")) {
         sidebarOverlay.classList.add("show");
         sidebarToggle.style.left = sidebarWidth;
-        fixedSiteLogo.classList.add("hidden");
       } else {
         sidebarOverlay.classList.remove("show");
         sidebarToggle.style.left = "0px";
-        fixedSiteLogo.classList.remove("hidden");
       }
     }
 
