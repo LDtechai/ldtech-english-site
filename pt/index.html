@@ -18,6 +18,15 @@
       --text: #0a0a0a;
       --muted: rgba(0, 0, 0, 0.68);
       --line: rgba(0, 0, 0, 0.10);
+      --sidebar-width: 290px;
+      --sidebar-tab: 86px;
+      --sidebar-width-mobile: 260px;
+      --sidebar-tab-mobile: 78px;
+    }
+
+    *:focus-visible {
+      outline: 2px solid #000000;
+      outline-offset: 2px;
     }
 
     html {
@@ -62,40 +71,52 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 290px;
+      width: var(--sidebar-width);
       max-width: 82vw;
       height: 100vh;
       background: rgba(255,255,255,0.98);
       border-right: 1px solid rgba(0,0,0,0.10);
       box-shadow: 18px 0 40px rgba(0,0,0,0.10);
-      padding: 100px 24px 24px;
+      padding: calc(var(--sidebar-tab) + 18px) 24px 24px;
       z-index: 10000;
-      transform: translateX(calc(-100% + 86px));
+      transform: translateX(calc(-100% + var(--sidebar-tab)));
       transition: transform 0.25s ease;
-      overflow: visible;
+      overflow: hidden;
     }
 
     .sidebar.open {
       transform: translateX(0);
     }
 
+    .sidebar-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: var(--sidebar-tab);
+      background: #000000;
+      border-bottom-right-radius: 18px;
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      overflow: hidden;
+      z-index: 10002;
+    }
+
     .sidebar-toggle {
       position: absolute;
       top: 0;
       right: 0;
-      z-index: 10001;
-      width: 86px;
-      height: 86px;
+      width: var(--sidebar-tab);
+      height: var(--sidebar-tab);
       border: none;
-      background: #000000;
-      border-radius: 0 0 18px 0;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 18px 0 40px rgba(0,0,0,0.18);
       padding: 8px;
-      overflow: hidden;
+      z-index: 10003;
     }
 
     .sidebar-toggle img {
@@ -111,7 +132,6 @@
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
-      padding-right: 72px;
     }
 
     .lang-btn {
@@ -625,27 +645,27 @@
       }
 
       .sidebar {
-        width: 260px;
-        padding-top: 92px;
-        transform: translateX(calc(-100% + 78px));
+        width: var(--sidebar-width-mobile);
+        padding-top: calc(var(--sidebar-tab-mobile) + 14px);
+        transform: translateX(calc(-100% + var(--sidebar-tab-mobile)));
       }
 
       .sidebar.open {
         transform: translateX(0);
       }
 
+      .sidebar-header {
+        height: var(--sidebar-tab-mobile);
+      }
+
       .sidebar-toggle {
-        width: 78px;
-        height: 78px;
+        width: var(--sidebar-tab-mobile);
+        height: var(--sidebar-tab-mobile);
       }
 
       .sidebar-toggle img {
         width: 52px;
         height: 52px;
-      }
-
-      .sidebar-language {
-        padding-right: 64px;
       }
 
       .chat-user,
@@ -669,10 +689,12 @@
 <body>
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <aside class="sidebar" id="sidebar">
-    <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir ou fechar menu">
-      <img src="/ldtech-logo.png" alt="Logo da LDtech" />
-    </button>
+  <aside class="sidebar" id="sidebar" aria-label="Menu lateral">
+    <div class="sidebar-header">
+      <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir ou fechar menu">
+        <img src="/ldtech-logo.png" alt="Logo da LDtech" />
+      </button>
+    </div>
 
     <div class="sidebar-language">
       <a href="/" class="lang-btn" aria-label="English version" title="English">🇺🇸</a>
