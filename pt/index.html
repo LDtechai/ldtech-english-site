@@ -112,7 +112,6 @@
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
-      margin-right: 72px;
     }
 
     .lang-btn {
@@ -627,6 +626,7 @@
 
       .sidebar {
         width: 260px;
+        padding-top: 92px;
         transform: translateX(calc(-100% + 78px));
       }
 
@@ -642,10 +642,6 @@
       .sidebar-toggle img {
         width: 52px;
         height: 52px;
-      }
-
-      .sidebar-language {
-        margin-right: 64px;
       }
 
       .chat-user,
@@ -929,7 +925,7 @@
         sidebarOverlay.addEventListener("click", closeSidebar);
       }
 
-      sidebarLinks.forEach(function (link) {
+      sidebarLinks.forEach(link => {
         link.addEventListener("click", closeSidebar);
       });
     });
