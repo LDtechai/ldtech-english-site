@@ -70,7 +70,7 @@
       box-shadow: 18px 0 40px rgba(0,0,0,0.10);
       padding: 100px 24px 24px;
       z-index: 10000;
-      transform: translateX(-100%);
+      transform: translateX(calc(-100% + 86px));
       transition: transform 0.25s ease;
       overflow: visible;
     }
@@ -82,7 +82,7 @@
     .sidebar-toggle {
       position: absolute;
       top: 0;
-      right: -86px;
+      right: 0;
       z-index: 10001;
       width: 86px;
       height: 86px;
@@ -105,12 +105,14 @@
       object-fit: contain;
       display: block;
       filter: brightness(0) saturate(100%);
+      pointer-events: none;
     }
 
     .sidebar-language {
       display: flex;
       gap: 10px;
       margin-bottom: 20px;
+      margin-right: 72px;
     }
 
     .lang-btn {
@@ -625,11 +627,14 @@
 
       .sidebar {
         width: 260px;
-        padding-top: 92px;
+        transform: translateX(calc(-100% + 78px));
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
       }
 
       .sidebar-toggle {
-        right: -78px;
         width: 78px;
         height: 78px;
       }
@@ -637,6 +642,10 @@
       .sidebar-toggle img {
         width: 52px;
         height: 52px;
+      }
+
+      .sidebar-language {
+        margin-right: 64px;
       }
 
       .chat-user,
@@ -661,7 +670,7 @@
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <aside class="sidebar" id="sidebar">
-    <button class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir ou fechar menu">
+    <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir ou fechar menu">
       <img src="/ldtech-logo.png" alt="Logo da LDtech" />
     </button>
 
@@ -888,34 +897,41 @@
   </footer>
 
   <script>
-    const sidebar = document.getElementById("sidebar");
-    const sidebarToggle = document.getElementById("sidebarToggle");
-    const sidebarOverlay = document.getElementById("sidebarOverlay");
-    const sidebarLinks = document.querySelectorAll(".sidebar a[href^='#']");
+    document.addEventListener("DOMContentLoaded", function () {
+      const sidebar = document.getElementById("sidebar");
+      const sidebarToggle = document.getElementById("sidebarToggle");
+      const sidebarOverlay = document.getElementById("sidebarOverlay");
+      const sidebarLinks = document.querySelectorAll(".sidebar a[href^='#']");
 
-    function syncOverlay() {
-      if (sidebar.classList.contains("open")) {
-        sidebarOverlay.classList.add("show");
-      } else {
-        sidebarOverlay.classList.remove("show");
+      function syncOverlay() {
+        if (sidebar.classList.contains("open")) {
+          sidebarOverlay.classList.add("show");
+        } else {
+          sidebarOverlay.classList.remove("show");
+        }
       }
-    }
 
-    function toggleSidebar() {
-      sidebar.classList.toggle("open");
-      syncOverlay();
-    }
+      function toggleSidebar() {
+        sidebar.classList.toggle("open");
+        syncOverlay();
+      }
 
-    function closeSidebar() {
-      sidebar.classList.remove("open");
-      syncOverlay();
-    }
+      function closeSidebar() {
+        sidebar.classList.remove("open");
+        syncOverlay();
+      }
 
-    sidebarToggle.addEventListener("click", toggleSidebar);
-    sidebarOverlay.addEventListener("click", closeSidebar);
+      if (sidebarToggle) {
+        sidebarToggle.addEventListener("click", toggleSidebar);
+      }
 
-    sidebarLinks.forEach(link => {
-      link.addEventListener("click", closeSidebar);
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener("click", closeSidebar);
+      }
+
+      sidebarLinks.forEach(function (link) {
+        link.addEventListener("click", closeSidebar);
+      });
     });
   </script>
 </body>
