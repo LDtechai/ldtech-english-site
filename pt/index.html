@@ -58,6 +58,44 @@
       z-index: 1;
     }
 
+    .top-socials {
+      position: fixed;
+      top: 22px;
+      right: 28px;
+      z-index: 10002;
+      display: flex;
+      gap: 12px;
+    }
+
+    .top-socials a {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid rgba(0,0,0,0.10);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+      color: #000000;
+      text-decoration: none;
+      transition: 0.2s ease;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .top-socials a:hover {
+      transform: translateY(-1px);
+      opacity: 0.75;
+    }
+
+    .top-socials svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+      display: block;
+    }
+
     .sidebar {
       position: fixed;
       top: 0;
@@ -221,38 +259,6 @@
       background: rgba(0,0,0,0.03);
       color: #000000;
       border: 1px solid rgba(0,0,0,0.10);
-    }
-
-    .sidebar-socials {
-      display: flex;
-      gap: 12px;
-      margin-top: 18px;
-    }
-
-    .sidebar-socials a {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 52px;
-      border-radius: 16px;
-      background: rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.10);
-      text-decoration: none;
-      color: #000000;
-      font-weight: 700;
-      padding: 0;
-    }
-
-    .sidebar-socials a:hover {
-      opacity: 0.7;
-    }
-
-    .sidebar-socials svg {
-      width: 22px;
-      height: 22px;
-      fill: currentColor;
-      display: block;
     }
 
     .hero {
@@ -635,6 +641,23 @@
         width: 100%;
       }
 
+      .top-socials {
+        top: 18px;
+        right: 18px;
+        gap: 10px;
+      }
+
+      .top-socials a {
+        width: 44px;
+        height: 44px;
+        border-radius: 13px;
+      }
+
+      .top-socials svg {
+        width: 20px;
+        height: 20px;
+      }
+
       .sidebar {
         width: 260px;
         max-width: 82vw;
@@ -675,6 +698,20 @@
   </style>
 </head>
 <body>
+  <div class="top-socials">
+    <a href="https://www.facebook.com/profile.php?id=61580997124511" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5.03 3.66 9.19 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.92 3.78-3.92 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.9h-2.33V22c4.78-.74 8.43-4.9 8.43-9.93z"/>
+      </svg>
+    </a>
+
+    <a href="https://www.instagram.com/ldtech.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2Zm10.25 1.65a.95.95 0 1 1-.95.95.95.95 0 0 1 .95-.95ZM12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Z"/>
+      </svg>
+    </a>
+  </div>
+
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <aside class="sidebar" id="sidebar" aria-label="Menu lateral">
@@ -698,20 +735,6 @@
     <div class="sidebar-cta">
       <a class="sidebar-btn sidebar-btn-primary" href="tel:+16369426124">Testar a Automação</a>
       <a class="sidebar-btn sidebar-btn-secondary" href="tel:+16362525071">Ligar para Tirar Dúvidas</a>
-    </div>
-
-    <div class="sidebar-socials">
-      <a href="https://www.facebook.com/profile.php?id=61580997124511" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M22 12.07C22 6.5 17.52 2 12 2S2 6.5 2 12.07c0 5.03 3.66 9.19 8.44 9.93v-7.03H7.9v-2.9h2.54V9.85c0-2.52 1.49-3.92 3.78-3.92 1.1 0 2.24.2 2.24.2v2.47H15.2c-1.24 0-1.63.78-1.63 1.57v1.89h2.77l-.44 2.9h-2.33V22c4.78-.74 8.43-4.9 8.43-9.93z"/>
-        </svg>
-      </a>
-
-      <a href="https://www.instagram.com/ldtech.ai/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2Zm10.25 1.65a.95.95 0 1 1-.95.95.95.95 0 0 1 .95-.95ZM12 7a5 5 0 1 1-5 5 5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 1 0 14.8 12 2.8 2.8 0 0 0 12 9.2Z"/>
-        </svg>
-      </a>
     </div>
   </aside>
 
@@ -907,36 +930,34 @@
   </footer>
 
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const sidebar = document.getElementById("sidebar");
-      const sidebarToggle = document.getElementById("sidebarToggle");
-      const sidebarOverlay = document.getElementById("sidebarOverlay");
-      const sidebarLinks = document.querySelectorAll(".sidebar a[href^='#']");
+    const sidebar = document.getElementById("sidebar");
+    const sidebarToggle = document.getElementById("sidebarToggle");
+    const sidebarOverlay = document.getElementById("sidebarOverlay");
+    const sidebarLinks = document.querySelectorAll(".sidebar a[href^='#']");
 
-      function syncOverlay() {
-        if (sidebar.classList.contains("open")) {
-          sidebarOverlay.classList.add("show");
-        } else {
-          sidebarOverlay.classList.remove("show");
-        }
+    function syncOverlay() {
+      if (sidebar.classList.contains("open")) {
+        sidebarOverlay.classList.add("show");
+      } else {
+        sidebarOverlay.classList.remove("show");
       }
+    }
 
-      function toggleSidebar() {
-        sidebar.classList.toggle("open");
-        syncOverlay();
-      }
+    function toggleSidebar() {
+      sidebar.classList.toggle("open");
+      syncOverlay();
+    }
 
-      function closeSidebar() {
-        sidebar.classList.remove("open");
-        syncOverlay();
-      }
+    function closeSidebar() {
+      sidebar.classList.remove("open");
+      syncOverlay();
+    }
 
-      sidebarToggle.addEventListener("click", toggleSidebar);
-      sidebarOverlay.addEventListener("click", closeSidebar);
+    sidebarToggle.addEventListener("click", toggleSidebar);
+    sidebarOverlay.addEventListener("click", closeSidebar);
 
-      sidebarLinks.forEach(link => {
-        link.addEventListener("click", closeSidebar);
-      });
+    sidebarLinks.forEach(link => {
+      link.addEventListener("click", closeSidebar);
     });
   </script>
 </body>
