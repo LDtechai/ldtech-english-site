@@ -72,14 +72,14 @@
       top: 0;
       left: 0;
       width: var(--sidebar-width);
-      max-width: 82vw;
+      max-width: var(--sidebar-width);
       height: 100vh;
       background: rgba(255,255,255,0.98);
       border-right: 1px solid rgba(0,0,0,0.10);
       box-shadow: 18px 0 40px rgba(0,0,0,0.10);
       padding: calc(var(--sidebar-tab) + 18px) 24px 24px;
       z-index: 10000;
-      transform: translateX(calc(-100% + var(--sidebar-tab)));
+      transform: translateX(-100%);
       transition: transform 0.25s ease;
       overflow: hidden;
     }
@@ -96,27 +96,31 @@
       height: var(--sidebar-tab);
       background: #000000;
       border-bottom-right-radius: 18px;
-      display: flex;
-      align-items: stretch;
-      justify-content: flex-start;
       overflow: hidden;
       z-index: 10002;
     }
 
     .sidebar-toggle {
-      position: absolute;
+      position: fixed;
       top: 0;
-      right: 0;
+      left: 0;
       width: var(--sidebar-tab);
       height: var(--sidebar-tab);
       border: none;
-      background: transparent;
+      background: #000000;
+      border-bottom-right-radius: 18px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       padding: 8px;
       z-index: 10003;
+      box-shadow: 18px 0 40px rgba(0,0,0,0.18);
+    }
+
+    .sidebar.open .sidebar-toggle {
+      left: calc(var(--sidebar-width) - var(--sidebar-tab));
+      box-shadow: none;
     }
 
     .sidebar-toggle img {
@@ -136,6 +140,7 @@
 
     .lang-btn {
       flex: 1;
+      min-width: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -149,6 +154,7 @@
       color: #000000;
       transition: 0.2s ease;
       line-height: 1;
+      overflow: hidden;
     }
 
     .lang-btn:hover {
@@ -172,6 +178,9 @@
       letter-spacing: -0.02em;
       padding: 14px 0;
       border-bottom: 1px solid rgba(0,0,0,0.08);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     .sidebar > a:hover {
@@ -209,6 +218,8 @@
       border-radius: 16px;
       padding: 14px 16px;
       transition: 0.2s ease;
+      overflow: hidden;
+      word-break: break-word;
     }
 
     .sidebar-cta .sidebar-btn {
@@ -240,6 +251,7 @@
 
     .sidebar-socials a {
       flex: 1;
+      min-width: 0;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -251,6 +263,7 @@
       color: #000000;
       font-weight: 700;
       padding: 0;
+      overflow: hidden;
     }
 
     .sidebar-socials a:hover {
@@ -646,12 +659,8 @@
 
       .sidebar {
         width: var(--sidebar-width-mobile);
+        max-width: var(--sidebar-width-mobile);
         padding-top: calc(var(--sidebar-tab-mobile) + 14px);
-        transform: translateX(calc(-100% + var(--sidebar-tab-mobile)));
-      }
-
-      .sidebar.open {
-        transform: translateX(0);
       }
 
       .sidebar-header {
@@ -661,6 +670,10 @@
       .sidebar-toggle {
         width: var(--sidebar-tab-mobile);
         height: var(--sidebar-tab-mobile);
+      }
+
+      .sidebar.open .sidebar-toggle {
+        left: calc(var(--sidebar-width-mobile) - var(--sidebar-tab-mobile));
       }
 
       .sidebar-toggle img {
@@ -690,11 +703,7 @@
   <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
   <aside class="sidebar" id="sidebar" aria-label="Menu lateral">
-    <div class="sidebar-header">
-      <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir ou fechar menu">
-        <img src="/ldtech-logo.png" alt="Logo da LDtech" />
-      </button>
-    </div>
+    <div class="sidebar-header"></div>
 
     <div class="sidebar-language">
       <a href="/" class="lang-btn" aria-label="English version" title="English">🇺🇸</a>
@@ -726,6 +735,10 @@
       </a>
     </div>
   </aside>
+
+  <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Abrir ou fechar menu">
+    <img src="/ldtech-logo.png" alt="Logo da LDtech" />
+  </button>
 
   <section class="hero" id="home">
     <div>
@@ -933,14 +946,32 @@
         }
       }
 
+      function syncTogglePosition() {
+        if (window.innerWidth <= 980) {
+          if (sidebar.classList.contains("open")) {
+            sidebarToggle.style.left = "182px";
+          } else {
+            sidebarToggle.style.left = "0px";
+          }
+        } else {
+          if (sidebar.classList.contains("open")) {
+            sidebarToggle.style.left = "204px";
+          } else {
+            sidebarToggle.style.left = "0px";
+          }
+        }
+      }
+
       function toggleSidebar() {
         sidebar.classList.toggle("open");
         syncOverlay();
+        syncTogglePosition();
       }
 
       function closeSidebar() {
         sidebar.classList.remove("open");
         syncOverlay();
+        syncTogglePosition();
       }
 
       if (sidebarToggle) {
@@ -954,6 +985,9 @@
       sidebarLinks.forEach(function (link) {
         link.addEventListener("click", closeSidebar);
       });
+
+      window.addEventListener("resize", syncTogglePosition);
+      syncTogglePosition();
     });
   </script>
 </body>
